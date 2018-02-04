@@ -50,8 +50,7 @@ def printme(head):
     if head is None:
         sys.stdout.write('\n')
         return
-    if head is not None:
-        sys.stdout.write(head.data)
+    sys.stdout.write(head.data)
     if head.next is not None:
         sys.stdout.write(', ')
     printme(head.next)
