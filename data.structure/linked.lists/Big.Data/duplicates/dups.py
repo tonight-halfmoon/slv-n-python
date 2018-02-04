@@ -8,8 +8,10 @@
     Duplicate in the first linked list is not considered
     All duplicate instances in the second linked list of a node in the first linked list will be counted
 
+   Development Time:
+   Evaluate `. runt_tests.sh` to check results of Unit Tests
+
    TODO:
-    - Unit Tests
     - Performance, Time and Spatial complexity analysis
 """
 
@@ -22,13 +24,14 @@ class Node(object):
 
 """" API """
 
-def show_dups(head1, head2):
+def show(head1, head2):
     dict_ = {}
     traverse(head1, dict_)
     update_dict(dict_, head2)
     print("{dup count, key}: ")
     result = [{k, v} for k, v in dict_.items() if v > 0]
     print(result)
+    return dict(result)
     
 def append(head, data):
     newNode =  Node(data, None)
@@ -110,6 +113,6 @@ if __name__ == '__main__':
   insert_all(l2, vs)
   sys.stdout.write("l2: ")
   printme(l2)
-  show_dups(l1, l2)
+  show(l1, l2)
 
 """ Evaluate with  `python dups.py` """
