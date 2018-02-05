@@ -21,18 +21,20 @@ class Node(object):
     def __init__(self, dataArg=None, nextArg=None):
         self.data = dataArg
         self.next = nextArg
-
+        
 """" API """
 
 def show(head1, head2):
     dict_ = {}
     traverse(head1, dict_)
     update_dict(dict_, head2)
-    print("{dup count, key}: ")
-    result = [{k, v} for k, v in dict_.items() if v > 0]
-    print(result)
-    return dict(result)
-    
+    return dict([{k, v} for k, v in dict_.items() if v > 0])
+
+def to_linkedlist(data=['v1', 'v2', 'v3']):
+    head = Node(data.pop())
+    insert_all(head, data)
+    return head
+
 def append(head, data):
     newNode =  Node(data, None)
     if head is None:
@@ -44,6 +46,8 @@ def append(head, data):
     return head
 
 def insert_all(head, vs):
+    if head is None:
+        return None
     insert_next(head, vs, None)
 
 def printme(head):
@@ -61,7 +65,7 @@ def insert_next(nextnode, vs, nextv):
     if len(vs) is 0:
         return nextnode
     nextv = vs.pop()
-    return insert_next(insert_internal(nextnode, nextv), vs, nextv)
+    insert_next(insert_internal(nextnode, nextv), vs, nextv)
 
 """
 insert_internal(had, data)
