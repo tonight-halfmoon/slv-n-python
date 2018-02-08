@@ -30,20 +30,19 @@ def show(head1, head2):
     update_dict(dict_, head2)
     return dict([{k, v} for k, v in dict_.items() if v > 0])
 
-def to_linkedlist(data=['v1', 'v2', 'v3']):
+def to_linkedlist(data = ['v1', 'v2', 'v3']):
     head = Node(data.pop())
     insert_all(head, data)
     return head
 
 def append(head, data):
-    newNode =  Node(data, None)
     if head is None:
-        return newNode
-    myHead = head
-    while myHead.next is not None:
-        myHead = myHead.next
-    myHead.next = newNode
-    return head
+        head = Node(data)
+        return True
+    if head.next is None:
+        head.next = Node(data, None)
+        return True
+    append(head.next, data)
 
 def insert_all(head, vs):
     if head is None:
@@ -53,7 +52,7 @@ def insert_all(head, vs):
 def printme(head):
     if head is None:
         sys.stdout.write('\n')
-        return
+        return True
     sys.stdout.write(head.data)
     if head.next is not None:
         sys.stdout.write(', ')
@@ -88,7 +87,7 @@ def traverse(head, dict_= {}):
     if dict_ is None:
         dict_ = {}
     dict_[head.data] = 0
-    traverse(head.next, dict_ )
+    traverse(head.next, dict_)
 
 def update_dict(dict_, head):
     if head is None:
