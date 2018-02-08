@@ -1,0 +1,9 @@
+
+
+
+self.head33 = dups.to_linkedlist(['v1', 'v2', 'v3'])
+self.head332 = dups.to_linkedlist(['v1', 'v2', 'v3'])
+
+
+def test_when_a_3_elem_linked_list_and_its_copy_then_there_must_be_one_duplicate_for_each_elem(self):
+        self.assertDictEqual(dups.show(self.head33, self.head332), dict([{1, 'v3'}, {1, 'v2'}, {1, 'v1'}]))

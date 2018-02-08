@@ -16,6 +16,12 @@ class node(object):
         self.data = dataArg
         self.next = nextArg
 
+    def ck_data(self):
+        return self.data
+
+    def ck_next(self):
+        return self.next
+
 class linked_nodes(object):
     def __init__(self):
         self.__head = node('HEAD', node('END'))
@@ -49,6 +55,15 @@ class linked_nodes(object):
     def remove_first(self):
         Head = self.__head
         Head.next = Head.next.next
+
+    def ck_node_data(self):
+        return self.__ck_node_data(self.__head)
+
+    def ck_next_node(self):
+        return self.__ck_next_node(self.__head)
+
+    def ck_head(self):
+        return self.__head
         
     def __insert_all(self, nHead, listvs):
         return self.__insert_next(nHead, listvs)
@@ -108,6 +123,16 @@ class linked_nodes(object):
             return listvs
         listvs.append(nHead.data)
         return self.__to_list(nHead.next, listvs)
+
+    def __ck_node_data(self, nHead):
+        if nHead is None:
+            return {}
+        return nHead.ck_data()
+
+    def __ck_next_node(self, nHead):
+        if nHead is None:
+            return {}
+        return nHead.ck_next()
     
 if __name__ == '__main__':
     ln1 = linked_nodes()
