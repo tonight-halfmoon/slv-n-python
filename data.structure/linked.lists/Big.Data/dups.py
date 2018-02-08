@@ -16,51 +16,53 @@
 """
 
 import sys
-from recursion import lns
+from definition import lns
 
-def show(head1, head2):
-    dict_ = {}
-    init_dict_with(head1, dict_)
-    update_dict(dict_, head2)
-    return dict([{k,v} for k, v in dict_.items() if v > 0])
+class Show(object):
     
-def init_dict_with(head, dict_= {}):
-    if head is None:
-        return dict_
-    if dict_ is None:
+    def show(self, lns1, lns2):
         dict_ = {}
-    return __init_dict_next_node(head.ck_head(), dict_)
+        self.init_dict(lns1, dict_)
+        self.update_dict(dict_, lns2)
+        return [{k,v} for (k,v) in dict_.items() if v > 0]
 
-def __init_dict_next_node(next_node, dict_):
-    if next_node is None:
-        return dict_
-    dict_[next_node.ck_data()] = 0
-    return __init_dict_next_node(next_node.ck_next(), dict_)
+    def init_dict(self, lns, dict_= {}):
+        if lns is None:
+            return dict_
+        if dict_ is None:
+            dict_ = {}
+        return self.__init_dict_next(lns.ck_head(), dict_)
 
-def update_dict(dict_, head):
-    if head is None:
-        return dict_
-    if dict_ is None:
-        return head
-    return __update_dict_with(head.ck_head(), dict_)
+    def __init_dict_next(self, nxt_node, dict_):
+        if nxt_node is None:
+            return dict_
+        dict_[nxt_node.ck_data()] = 0
+        return self.__init_dict_next(nxt_node.ck_next(), dict_)
 
-def __update_dict_with(next_node, dict_):
-    if next_node is None:
-        return dict_
-    if next_node.ck_data() in dict_:
-        dict_[next_node.ck_data()] += 1
-    return __update_dict_with(next_node.ck_next(), dict_)
+    def update_dict(self, dict_, lns):
+        if lns is None:
+            return dict_
+        if dict_ is None:
+            return head
+        return self.__update_dict_next(lns.ck_head(), dict_)
+
+    def __update_dict_next(self, nxt_node, dict_):
+        if nxt_node is None:
+            return dict_
+        if nxt_node.ck_data() in dict_:
+            dict_[nxt_node.ck_data()] += 1
+        return self.__update_dict_next(nxt_node.ck_next(), dict_)
 
 """ Sample client """
 """ @public """
 
 if __name__ == '__main__':
   l1 = lns.linked_nodes()
-  l1.from_list(['v1', 'v2', 'v3'])
+  l1.from_list(['v1', 'v2', 'v3', 'v4', 'v6'])
   l1.print_()
   
   l2 = lns.linked_nodes()
-  l2.from_list(['v0', 'v5', 'v3'])
-  print(show(l1, l2))
+  l2.from_list(['v0', 'v5', 'v3', 'v4', 'v5'])
+  print(Show().show(l1, l2))
 
 """ Evaluate with  `python dups.py` """

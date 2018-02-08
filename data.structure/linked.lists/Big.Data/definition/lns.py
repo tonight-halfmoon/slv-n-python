@@ -50,7 +50,7 @@ class linked_nodes(object):
 
     def remove_all(self):
         HEAD = self.__head
-        HEAD.__next = self.__remove_all(self.__head)
+        HEAD.next = self.__remove_all(self.__head)
 
     def remove_first(self):
         Head = self.__head
