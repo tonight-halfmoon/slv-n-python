@@ -13,11 +13,11 @@ import sys
 
 class Node(object):
     def __init__(self, dataArg = None, nextArg = None):
-        self.data = dataArg
+        self.__data = dataArg
         self.next = nextArg
 
     def ck_data(self):
-        return self.data
+        return self.__data
 
     def ck_next(self):
         return self.next
@@ -78,7 +78,7 @@ class LNs(object):
         if nHead is None:
             sys.stdout.write('\n')
             return True
-        sys.stdout.write(nHead.data)
+        sys.stdout.write(nHead.ck_data())
         if nHead.next is not None:
             sys.stdout.write(' --> ')
         self.__print(nHead.next)
@@ -86,14 +86,14 @@ class LNs(object):
     def __search(self, nHead, data):
         if nHead is None:
             return 'not_found'
-        if nHead.data is data:
+        if nHead.ck_data() is data:
             return 'found'
         return self.__search(nHead.next, data)
 
     def __remove_last(self, nHead):
         if nHead is None:
             return False
-        if nHead.next is not None and nHead.next.next is not None and nHead.next.next.data is 'END':
+        if nHead.next is not None and nHead.next.next is not None and nHead.next.next.ck_data() is 'END':
             nHead.next = nHead.next.next
             return True
         self.__remove_last(nHead.next)
@@ -101,7 +101,7 @@ class LNs(object):
     def __append(self, nHead, data):
         if nHead is None:
             return False
-        if nHead.next is not None and nHead.next.data is 'END':
+        if nHead.next is not None and nHead.next.ck_data() is 'END':
             tEND = nHead.next
             nHead.next = Node(data, tEND)
             return True
@@ -114,14 +114,14 @@ class LNs(object):
     def __remove_all(self, nHead):
         if nHead is None:
             return False
-        if nHead.data is 'END':
+        if nHead.ck_data() is 'END':
             return nHead
         return self.__remove_all(nHead.next)
 
     def __to_list(self, nHead, listvs):
         if nHead is None:
             return listvs
-        listvs.append(nHead.data)
+        listvs.append(nHead.ck_data())
         return self.__to_list(nHead.next, listvs)
 
     def __ck_node_data(self, nHead):

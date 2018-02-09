@@ -17,7 +17,7 @@ class DupsInTwoLNsCheckerTestCase(unittest.TestCase):
         self.lns2 = None
         self.lns3 = None
         self.lns19358 = []
-        
+
     def test_when_two_linked_lists_having_19358_nodes_identical_must_pass(self):
         self.assertEqual(len(DupsInTwoLNsChecker().find_duplicates(self.lns19358, self.lns19358)), 19360) 
         

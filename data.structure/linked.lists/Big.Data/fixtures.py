@@ -14,7 +14,7 @@ class fixture(object):
                 lns1M.from_list(listvs)
                 return lns1M
 
-        def setuo_1M_lns_combinator(self):
+        def setup_1M_lns_combinator(self):
                 lns1M = lns.LNs()
                 for n in self.setup_1M_list():
                         lns1M.append(n)
