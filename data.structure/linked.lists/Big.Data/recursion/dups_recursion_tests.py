@@ -1,9 +1,9 @@
 import unittest
-from dups import DupsInTwoLNsChecker
+from dups import DuplicatesInTwoLinkedListsChecker
 import fixtures
 from definition import lns
 
-class DupsInTwoLNsCheckerTestCase(unittest.TestCase):
+class DupsIn2LNsRecursiveTestCase(unittest.TestCase):
 
     def setUp(self):
         fxt = fixtures.fixture()
@@ -19,19 +19,19 @@ class DupsInTwoLNsCheckerTestCase(unittest.TestCase):
         self.lns19358 = []
         
     def test_when_two_linked_lists_having_19358_nodes_identical_must_pass(self):
-        self.assertEqual(len(DupsInTwoLNsChecker().find_duplicates(self.lns19358, self.lns19358)), 19360) 
+        self.assertEqual(len(DupsIn2LNsRecursive().find_duplicates(self.lns19358, self.lns19358)), 19360) 
         
     def test_when_2nd_linkedlist_has_dups_then_dups_must_be_shown(self):
-        self.assertListEqual(DupsInTwoLNsChecker().find_duplicates(self.lns1, self.lns2), [('v0', 1), ('HEAD', 1), ('END', 1)])
+        self.assertListEqual(DupsIn2LNsRecursive().find_duplicates(self.lns1, self.lns2), [('HEAD', 1), ('v0', 1), ('END', 1)])
 
     def test_when_no_duplicates_then_nothing_to_be_shown(self):
         
-        self.assertListEqual(DupsInTwoLNsChecker().find_duplicates(self.lns1, self.lns3), [('HEAD', 1), ('END', 1)])
+        self.assertListEqual(DupsIn2LNsRecursive().find_duplicates(self.lns1, self.lns3), [('HEAD', 1), ('END', 1)])
 
 if __name__ == '__main__':
     unittest.main()
 
 """
-suite = unittest.TestLoader().loadTestsFromTestCase(DupsInTwoLNsCheckerTestCase)
+suite = unittest.TestLoader().loadTestsFromTestCase(DuplicatesInTwoLinkedListsCheckerTestCase)
 unittest.TextTestRunner(verbosity=2).run(suite)
 """

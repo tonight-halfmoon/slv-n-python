@@ -1,2 +1,2 @@
-from lns import linked_nodes
+from lns import LNs
 __all__ = ['dups']

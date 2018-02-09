@@ -2,10 +2,10 @@ import unittest
 import lns
 import fixtures
 
-class lns_api(unittest.TestCase):
+class LNsAPI_TestCase(unittest.TestCase):
 
     def setUp(self):
-        self.lns_instance = lns.linked_nodes()
+        self.lns_instance = lns.LNs()
 
     def tearDown(self):
         self.lns_instance = None

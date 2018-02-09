@@ -1,2 +1,2 @@
 #!/bin/bash python
-python -m unittest -fv tests.lns_api
+python -m unittest -fv lns_api_tests.LNsAPI_TestCase

@@ -11,7 +11,7 @@
 
 import sys
 
-class node(object):
+class Node(object):
     def __init__(self, dataArg = None, nextArg = None):
         self.data = dataArg
         self.next = nextArg
@@ -22,9 +22,9 @@ class node(object):
     def ck_next(self):
         return self.next
 
-class linked_nodes(object):
+class LNs(object):
     def __init__(self):
-        self.__head = node('HEAD', node('END'))
+        self.__head = Node('HEAD', Node('END'))
         
     def from_list(self, listvs = ['v1', 'v2', 'v3']):
         self.__insert_all(self.__head, listvs).next = self.__head.next
@@ -71,7 +71,7 @@ class linked_nodes(object):
     def __insert_next(self, nHead, listvs):
         if len(listvs) is 0:
             return nHead
-        nHead.next = node(listvs.pop())
+        nHead.next = Node(listvs.pop())
         return self.__insert_next(nHead.next, listvs)
         
     def __print(self, nHead):
@@ -103,13 +103,13 @@ class linked_nodes(object):
             return False
         if nHead.next is not None and nHead.next.data is 'END':
             tEND = nHead.next
-            nHead.next = node(data, tEND)
+            nHead.next = Node(data, tEND)
             return True
         self.__append(nHead.next, data)
 
     def __prepend(self, nHead, data):
         if nHead is not None:
-            return node(data, nHead)
+            return Node(data, nHead)
 
     def __remove_all(self, nHead):
         if nHead is None:
