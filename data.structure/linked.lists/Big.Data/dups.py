@@ -20,11 +20,11 @@ from definition import lns
 
 class Show(object):
     
-    def show(self, lns1, lns2):
+    def play(self, lns1, lns2):
         dict_ = {}
         self.init_dict(lns1, dict_)
         self.update_dict(dict_, lns2)
-        return [{k,v} for (k,v) in dict_.items() if v > 0]
+        return [(k,v) for (k,v) in dict_.items() if v > 0]
 
     def init_dict(self, lns, dict_= {}):
         if lns is None:
@@ -63,6 +63,6 @@ if __name__ == '__main__':
   
   l2 = lns.linked_nodes()
   l2.from_list(['v0', 'v5', 'v3', 'v4', 'v5'])
-  print(Show().show(l1, l2))
+  print(Show().play(l1, l2))
 
 """ Evaluate with  `python dups.py` """

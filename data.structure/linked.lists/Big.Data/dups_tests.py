@@ -19,10 +19,11 @@ class show_duplicates_test_case(unittest.TestCase):
         self.lns3 = None
         
     def test_when_2nd_linkedlist_has_dups_then_dups_must_be_shown(self):
-        self.assertEqual(Show().show(self.lns1, self.lns2), [set(['v0', 1]), set([1, 'HEAD']), set([1, 'END'])])
+        self.assertListEqual(Show().play(self.lns1, self.lns2), [('HEAD', 1), ('v0', 1), ('END', 1)])
 
     def test_when_no_duplicates_then_nothing_to_be_shown(self):
-        self.assertEqual(Show().show(self.lns1, self.lns3), [set([1, 'HEAD']), set([1, 'END'])])
+        
+        self.assertListEqual(Show().play(self.lns1, self.lns3), [('HEAD', 1), ('END', 1)])
 
 if __name__ == '__main__':
     unittest.main()
