@@ -6,17 +6,20 @@ from definition import lns
 class show_duplicates_test_case(unittest.TestCase):
 
     def setUp(self):
-        self.lns1 = lns.linked_nodes()
-        self.lns1.from_list(['v0', 'v2'])
-        self.lns2 = lns.linked_nodes()
-        self.lns2.from_list(['v0', 'v10', 'v9'])
-        self.lns3 = lns.linked_nodes()
-        self.lns3.from_list(['s0'])
+        fxt = fixtures.fixture()
+        self.lns1 = fxt.lns_1()
+        self.lns2 = fxt.lns_2()
+        self.lns3 = fxt.lns_3()
+        self.lns19358 = fxt.setup_19358_lns()
 
     def tearDown(self):
         self.lns1 = None
         self.lns2 = None
         self.lns3 = None
+        self.lns19358 = []
+        
+    def test_when_two_linked_lists_having_19358_nodes_identical_must_pass(self):
+        self.assertEqual(len(Show().play(self.lns19358, self.lns19358)), 19360) 
         
     def test_when_2nd_linkedlist_has_dups_then_dups_must_be_shown(self):
         self.assertListEqual(Show().play(self.lns1, self.lns2), [('HEAD', 1), ('v0', 1), ('END', 1)])
