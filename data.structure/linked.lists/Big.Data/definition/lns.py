@@ -43,8 +43,8 @@ class LNs(object):
     def print_(self):
         self.__print(self.__head)
 
-    def search(self, data):
-        return self.__seek(self.__head, data)
+    def member(self, data):
+        return self.__is_element(self.__head, data)
 
     def remove_last(self):
         self.__remove_last(self.__head)
@@ -56,6 +56,9 @@ class LNs(object):
     def remove_first(self):
         Head = self.__head
         Head.next = Head.next.next
+
+    def size(self):
+        return self.__size(self.__head, -2)
 
     def ck_node_data(self):
         return self.__ck_node_data(self.__head)
@@ -84,12 +87,12 @@ class LNs(object):
             sys.stdout.write(' --> ')
         self.__print(nHead.next)
 
-    def __seek(self, nHead, data):
+    def __is_element(self, nHead, data):
         if nHead is None:
-            return 'not_found'
+            return False
         if nHead.ck_data() == data:
-            return 'found'
-        return self.__seek(nHead.next, data)
+            return True
+        return self.__is_element(nHead.next, data)
 
     def __remove_last(self, nHead):
         if nHead is None:
@@ -124,6 +127,12 @@ class LNs(object):
             return listvs
         listvs.append(nHead.ck_data())
         return self.__to_list(nHead.next, listvs)
+
+    def __size(self, nHead, acc):
+        if nHead is None:
+            return acc
+        acc += 1
+        return self.__size(nHead.next, acc)
 
     def __ck_node_data(self, nHead):
         if nHead is None:
