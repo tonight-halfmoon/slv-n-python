@@ -8,13 +8,13 @@ class fixture(object):
         def setup_1M_list(self):
                 return ['v' + str(i) for i in range(1000000)]
 
-        def setup_1M_lns(self):
+        def setup_1M__elems_lns(self):
                 listvs = self.setup_1M_list()
                 lns1M = lns.LNs()
                 lns1M.from_list(listvs)
                 return lns1M
 
-        def setup_1M_lns_combinator(self):
+        def setup_1M_elems_lns_combinator(self):
                 lns1M = lns.LNs()
                 for n in self.setup_1M_list():
                         lns1M.append(n)

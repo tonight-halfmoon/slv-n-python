@@ -1,1 +1,1 @@
-__all__ = ['lns']
+__all__ = ['lns', 'lns_iterative']

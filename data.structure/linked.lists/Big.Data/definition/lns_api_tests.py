@@ -6,9 +6,11 @@ class LNsAPI_TestCase(unittest.TestCase):
 
     def setUp(self):
         self.lns_instance = lns.LNs()
+        self.lns4961 = fixtures.setup_4961_lns()
 
     def tearDown(self):
         self.lns_instance = None
+        self.lns4961 = None
         
     def test_from_list(self):
         self.lns_instance.from_list(['v1', 'v2', 'v3'])
@@ -32,12 +34,15 @@ class LNsAPI_TestCase(unittest.TestCase):
         self.lns_instance.from_list(['v1', 'v2', 'v10', 'v90', 'v4', 'v7'])
         self.assertEqual(self.lns_instance.search('v10'), 'found')
 
+    def test_search_on_4961_elems_LNs_must_be_found(self):
+       self.assertEqual(self.lns4961.search('v98'), 'found')
+
     def test_remove_last(self):
         self.lns_instance.from_list(['v2', 'v1', 'v10'])
         self.lns_instance.remove_last()
         self.assertEqual(self.lns_instance.to_list(), ['HEAD', 'v10', 'v1', 'END'])
 
-    def test_remove_fist(self):
+    def test_remove_first(self):
         self.lns_instance.from_list(['v1', 'v100', 'v200'])
         self.lns_instance.remove_first()
         self.assertEqual(self.lns_instance.to_list(), ['HEAD', 'v100', 'v1', 'END'])

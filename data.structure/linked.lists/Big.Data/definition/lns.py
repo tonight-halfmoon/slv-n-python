@@ -10,6 +10,7 @@
 """
 
 import sys
+sys.setrecursionlimit(5000)
 
 class Node(object):
     def __init__(self, dataArg = None, nextArg = None):
@@ -43,7 +44,7 @@ class LNs(object):
         self.__print(self.__head)
 
     def search(self, data):
-        return self.__search(self.__head, data)
+        return self.__seek(self.__head, data)
 
     def remove_last(self):
         self.__remove_last(self.__head)
@@ -83,12 +84,12 @@ class LNs(object):
             sys.stdout.write(' --> ')
         self.__print(nHead.next)
 
-    def __search(self, nHead, data):
+    def __seek(self, nHead, data):
         if nHead is None:
             return 'not_found'
-        if nHead.ck_data() is data:
+        if nHead.ck_data() == data:
             return 'found'
-        return self.__search(nHead.next, data)
+        return self.__seek(nHead.next, data)
 
     def __remove_last(self, nHead):
         if nHead is None:
@@ -133,25 +134,3 @@ class LNs(object):
         if nHead is None:
             return {}
         return nHead.ck_next()
-    
-if __name__ == '__main__':
-    ln1 = linked_nodes()
-    ln1.print_()
-    ln1.from_list(['v1', 'v2', 'v3', 'v4'])
-    ln1.print_()
-    print('\'v5\' ' + ln1.search('v5'))
-    ln1.append('v5')
-    print('\'v4\' ' + ln1.search('v4'))
-    ln1.print_()
-    print('attempt to remove last element')
-    ln1.remove_last()
-    ln1.print_()
-    ln1.prepend('v9')
-    ln1.print_()
-    ln1.append('v10')
-    ln1.print_()
-    ln1.remove_first()
-    ln1.print_()
-    print('Removing all elements')
-    ln1.remove_all()
-    ln1.print_()
