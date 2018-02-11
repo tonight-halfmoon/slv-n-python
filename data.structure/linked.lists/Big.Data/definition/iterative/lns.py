@@ -14,6 +14,9 @@ class LNs(object):
         def from_list(self, listvs = ['v1', 'v2', 'v3']):
                 self.__insert_all(self.__head, listvs)
 
+        def to_list(self):
+                return self.__to_list(self.__head)
+
         def print_(self):
                 self.__print(self.__head)
 
@@ -58,7 +61,7 @@ class LNs(object):
                 while nHead.next is not None:
                         nHead = nHead.next
                 for n in listvs:
-                        nHead.next = Node(str(n))
+                        nHead.next = Node(n)
                         nHead = nHead.next
 
         def __print(self, nHead):
@@ -71,3 +74,14 @@ class LNs(object):
                         nHead = nHead.next
                 sys.stdout.write(nHead.ck_data())
                 sys.stdout.write('\n')
+
+        def __to_list(self, nHead):
+                listvs = []
+                if nHead is None:
+                        return listvs
+                nHead = nHead.next
+                while nHead.next is not None:
+                        listvs.append(nHead.ck_data())
+                        nHead = nHead.next
+                listvs.append(nHead.ck_data())
+                return listvs
