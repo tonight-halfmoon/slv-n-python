@@ -37,6 +37,9 @@ class LNsAPI_TestCase(unittest.TestCase):
     def test_v98_must_be_a_member_of_4961_elems_LNs(self):
        self.assertTrue(self.lns4961.member('v98'))
 
+    def test_v4962_must_be_a_member_of_4961_elems_LNs(self):
+       self.assertFalse(self.lns4961.member('v4962'))
+
     def test_remove_last(self):
         self.lns_instance.from_list(['v2', 'v1', 'v10'])
         self.lns_instance.remove_last()
@@ -49,6 +52,11 @@ class LNsAPI_TestCase(unittest.TestCase):
 
     def test_size(self):
         self.assertEqual(self.lns4961.size(), 4961)
+
+    def test_from_list_4961(self):
+        self.lns_instance = lns.LNs()
+        self.lns_instance.from_list(fixtures.setup_4961_list())
+        self.assertEqual(self.lns_instance.size(), 4961)
 
 if __name__ == '__main__':
     unittest.main()

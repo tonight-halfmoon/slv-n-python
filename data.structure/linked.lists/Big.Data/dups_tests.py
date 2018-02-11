@@ -25,7 +25,6 @@ class DupsInTwoLNsCheckerTestCase(unittest.TestCase):
         self.assertListEqual(DupsInTwoLNsChecker().find_duplicates(self.lns1, self.lns2), [('HEAD', 1), ('v0', 1), ('END', 1)])
 
     def test_when_no_duplicates_then_nothing_to_be_shown(self):
-        
         self.assertListEqual(DupsInTwoLNsChecker().find_duplicates(self.lns1, self.lns3), [('HEAD', 1), ('END', 1)])
 
 if __name__ == '__main__':
