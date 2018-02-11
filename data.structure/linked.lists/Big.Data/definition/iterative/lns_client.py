@@ -24,8 +24,7 @@ if __name__ == '__main__':
     ln1.remove_all()
     ln1.print_()
     lns4032 = LNs()
-    list4032 = ['v'+ str(n) for n in range(4032)]
+    list4032 = ['v'+ str(n) for n in range(1, 4033)]
     lns4032.from_list(list4032)
     lns4032.print_()
     print(lns4032.member('v134'))
-    

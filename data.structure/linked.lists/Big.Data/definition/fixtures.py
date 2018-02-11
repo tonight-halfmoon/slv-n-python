@@ -6,10 +6,10 @@ def setup_LNs1():
         return lns1
 
 def setup_19358_list():
-         return ['v' + str(i) for i in range(19358)]
+         return ['v' + str(i) for i in range(1, 19359)]
  
 def setup_4961_list():
-        return ['v' + str(i) for i in range(4961)]
+        return ['v' + str(i) for i in range(1, 4962)]
 
 def setup_19358_lns():
         lns19358 = lns.LNs()
