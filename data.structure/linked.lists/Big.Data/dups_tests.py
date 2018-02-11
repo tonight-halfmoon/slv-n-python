@@ -6,7 +6,7 @@ from definition import lns
 class DupsInTwoLNsCheckerTestCase(unittest.TestCase):
 
     def setUp(self):
-        fxt = fixtures.fixture()
+        fxt = fixtures.Fixtures()
         self.lns1 = fxt.lns_1()
         self.lns2 = fxt.lns_2()
         self.lns3 = fxt.lns_3()

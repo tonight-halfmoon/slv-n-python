@@ -7,5 +7,3 @@ class Node(object):
     def ck_data(self):
         return self.__data
 
-    def ck_next(self):
-        return self.next

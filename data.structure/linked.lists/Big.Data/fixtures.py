@@ -1,16 +1,17 @@
 
 from definition import lns
+
 import sys
 sys.setrecursionlimit(50000)
 
-class fixture(object):
+class Fixtures(object):
 
         def setup_1M_list(self):
                 return ['v' + str(i) for i in range(1000000)]
 
         def setup_1M__elems_lns(self):
                 listvs = self.setup_1M_list()
-                lns1M = lns.LNs()
+                lns1M = LNs()
                 lns1M.from_list(listvs)
                 return lns1M
 
