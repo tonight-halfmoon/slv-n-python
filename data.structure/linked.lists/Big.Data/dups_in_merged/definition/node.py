@@ -10,6 +10,9 @@ class Node(object):
     def ck_data(self):
         return self.__data
 
+    def ck_next(self):
+        return self.next
+
     def visit(self):
         self.__has_been_visited = True
         self.__time_visited = time.time()

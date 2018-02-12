@@ -1,6 +1,5 @@
 
 from definition import lns
-
 import sys
 sys.setrecursionlimit(50000)
 
@@ -11,7 +10,7 @@ class Fixtures(object):
 
         def setup_1M__elems_lns(self):
                 listvs = self.setup_1M_list()
-                lns1M = LNs()
+                lns1M = lns.LNs()
                 lns1M.from_list(listvs)
                 return lns1M
 

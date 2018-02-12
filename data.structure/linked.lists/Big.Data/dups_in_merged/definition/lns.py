@@ -8,14 +8,13 @@
   @date   February 7th, 2018
 
 """
-
-from node import Node
+from . import node
 import sys
 sys.setrecursionlimit(5000)
 
 class LNs(object):
     def __init__(self):
-        self.__head = Node('HEAD', Node('END'))
+        self.__head = node.Node('HEAD', node.Node('END'))
         
     def from_list(self, listvs = ['v1', 'v2', 'v3']):
         self.__insert_all(self.__head, listvs).next = self.__head.next
@@ -126,7 +125,7 @@ class LNs(object):
     def __insert_next(self, nHead, listvs):
         if len(listvs) is 0:
             return nHead
-        nHead.next = Node(listvs.pop())
+        nHead.next = node.Node(listvs.pop())
         return self.__insert_next(nHead.next, listvs)
         
     def __print(self, nHead):

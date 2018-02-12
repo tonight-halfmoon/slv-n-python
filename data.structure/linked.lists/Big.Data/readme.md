@@ -12,4 +12,4 @@ The implemented logic assumes that the input two linked lists are absultely inde
 
 ## Duplicates in Merged Two Linked Lists
 
-To traverse and show duplicate instances in two merged linked lists, an extended definition is added to Node and the solution is provided by [Dups in Merged](./dups_in_merged/dups_in_merged.py)
+To traverse and show duplicate instances in two merged linked lists, an extended definition is added to class [Node](./dups_in_merged/definition/node.py). The solution is extended with extra two instructions keeping the complexity non-exponential in module [Dups in Merged](./dups_in_merged/dups_in_merged.py)
