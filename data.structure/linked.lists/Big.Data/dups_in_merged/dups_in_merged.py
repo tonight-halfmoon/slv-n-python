@@ -3,7 +3,9 @@
 
     Problem Statement: find out duplicate nodes in two Big linked lists
     
-    Implemented Logic assumes the each provided linked list starts with a unique head but the merge at some node later. The merged two linked lists continue as one linked list.
+    Implemented Logic assumes that each provided linked list starts with a unique head but then they do merge at some node later. 
+
+    The merged two linked lists continue as one linked list.
 
     [*] Unit Testing and Development Time:
        - Evaluate `. runt_tests.sh` to check results of Unit Tests
