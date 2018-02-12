@@ -37,3 +37,4 @@ class DupsInTwoLNsChecker(object):
                 dict_[nxtNode.ck_data()] += 1
             nxtNode = nxtNode.ck_next()
         return [(k,v) for (k,v) in dict_.items() if v > 0]
+

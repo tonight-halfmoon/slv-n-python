@@ -1,11 +1,11 @@
 """
     February 12th 2018
 
-    Problem Statement: find out duplicate nodes in two Big linked lists
+    Problem Statement: find out duplicate nodes in two merged linked lists
     
     Implemented Logic assumes that each provided linked list starts with a unique head but then they do merge at some node later. 
 
-    The merged two linked lists continue as one linked list.
+    The merged linked lists continue as one linked list.
 
     [*] Unit Testing and Development Time:
        - Evaluate `. runt_tests.sh` to check results of Unit Tests
@@ -36,3 +36,4 @@ class DupsInTwoMergedLNsChecker(object):
                                 dict_[nxtNode.ck_data()] += 1
                         nxtNode = nxtNode.ck_next()
                 return [(k,v) for (k,v) in dict_.items() if v > 0]
+
