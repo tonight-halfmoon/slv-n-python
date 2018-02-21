@@ -21,15 +21,13 @@ class DupsInTwoMergedLNsChecker(object):
         
         def find_duplicates(self, LNs1, LNs2):
                 dict_ = {}
-                if LNs1 is None:
+                if LNs1.is_empty() == True or LNs2.is_empty() == True:
                         return dict_
                 nxtNode = LNs1.ck_head()
                 while nxtNode is not None:
                         nxtNode.visit()
                         dict_[nxtNode.ck_data()] = 0
                         nxtNode = nxtNode.ck_next()
-                if LNs2 is None:
-                        return dict_
                 nxtNode = LNs2.first()
                 while nxtNode is not None:
                         if nxtNode.ck_data() in dict_ and nxtNode.is_visited() == False:
