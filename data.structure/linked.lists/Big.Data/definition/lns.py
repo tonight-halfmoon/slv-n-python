@@ -68,6 +68,11 @@ class LNs(object):
 
     def ck_head(self):
         return self.__head
+
+    def is_empty(self):
+        if self.__head.next.ck_data() == 'END':
+            return True
+        return False
         
     def __insert_all(self, nHead, listvs):
         return self.__insert_next(nHead, listvs)

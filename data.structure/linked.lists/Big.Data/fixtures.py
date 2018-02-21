@@ -43,3 +43,8 @@ class Fixtures(object):
                 lns3 = lns.LNs()
                 lns3.from_list(['s0'])
                 return lns3
+
+        def lns_11(self):
+                lns11 = lns.LNs()
+                lns11.from_list(['v0', 'v0', 'v2', 'v2', 'v2'])
+                return lns11
