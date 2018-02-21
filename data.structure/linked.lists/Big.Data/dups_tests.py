@@ -38,10 +38,10 @@ class DupsInTwoLNsCheckerTestCase(unittest.TestCase):
         self.assertEqual(DupsInTwoLNsChecker().find_duplicates(self.lns1, self.emptyLns), {})
 
     def test_when_all_duplicates_in_the_second_linked_list_are_considered(self):
-        self.assertEqual(DupsInTwoLNsChecker().find_duplicates(self.lns1, self.lns11), [('HEAD', 1), ('v2', 3), ('v0', 2), ('END', 1)])
+        self.assertListEqual(DupsInTwoLNsChecker().find_duplicates(self.lns1, self.lns11), [('HEAD', 1), ('v2', 3), ('v0', 2), ('END', 1)])
 
     def test_when_any_duplicate_in_the_first_linked_list_is_not_considered(self):
-        self.assertEqual(DupsInTwoLNsChecker().find_duplicates(self.lns11, self.lns11), [('HEAD', 1), ('v2', 3), ('v0', 2), ('END', 1)])
+        self.assertListEqual(DupsInTwoLNsChecker().find_duplicates(self.lns11, self.lns11), [('HEAD', 1), ('v2', 3), ('v0', 2), ('END', 1)])
 
 if __name__ == '__main__':
     unittest.main()
